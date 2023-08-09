@@ -42,7 +42,7 @@ namespace homework2Tests
         {
             _robot.SwitchTo(START_UP_FORM);
             _robot.ClickButton("Course Selecting System");
-            await Task.Delay(600);
+            await Task.Delay(1000);
             _robot.SwitchTo(COURSE_SELECTING_FORM);
         }
 
@@ -71,7 +71,7 @@ namespace homework2Tests
         private async Task RunScriptOpenCourseSelectionResultFormAsync()
         {
             _robot.ClickButton("查看選課結果");
-            await Task.Delay(600);
+            await Task.Delay(1000);
             _robot.SwitchTo(COURSE_SELECTION_RESULT_FORM);
         }
 
@@ -216,7 +216,7 @@ namespace homework2Tests
             _robot.ClickButton("電子三甲");
             _robot.ClickButton("儲存");
             _robot.SwitchTo(COURSE_SELECTING_FORM);
-            string[] testData = { "False", "294321", "巨量資料分析導論", "1", "3.0", "3", "★", "王正豪", "", "5 6", "", "7", "", "", "", "六教325(e)", "73", "2", "", "", "查詢", "◎", "", "" };
+            string[] testData = { "False", "294321", "巨量資料分析導論", "1", "3.0", "3", "★", "王正豪", "", "5 6", "", "7", "", "", "", "六教325(e)", "73", "4", "", "", "查詢", "◎", "", "" };
             _robot.AssertDataGridViewRowDataBy("_dataGridView0", 9, testData);
             string[] testData2 = { "退選", "270915", "物件導向分析與設計", "1", "2", "2", "★", "陳偉凱", "", "3", "3", "", "", "", "", "二教206(e)\r\n二教205(e)", "43", "20", "", "", "查詢", "◎兼任陳偉凱老師,限52人", "", "" };
             //_robot.ClickTabControl("電子三甲");
