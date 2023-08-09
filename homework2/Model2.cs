@@ -111,14 +111,20 @@ namespace homework2
         {
             for (int i = 0; i < number; i++)
             {
-                nodeTableRow.RemoveAt(0);
+                if (nodeTableRow.Count > 0)
+                {
+                    nodeTableRow.RemoveAt(0);
+                }
             }
         }
 
         //刪除指定index的元素
         private void RemoveAt(HtmlNodeCollection nodeTableRow, int index)
         {
-            nodeTableRow.RemoveAt(index);
+            if (nodeTableRow.Count >= index && index >= 0)
+            {
+                nodeTableRow.RemoveAt(index);
+            }
         }
 
         //獲取html中的table
@@ -126,9 +132,9 @@ namespace homework2
         {
             const string NODE = "//body/table";
             HtmlWeb webClient = new HtmlWeb();
-            webClient.OverrideEncoding = Encoding.Default;
+            webClient.OverrideEncoding = Encoding.UTF8;
             HtmlAgilityPack.HtmlDocument document = webClient.Load(link);
-            HtmlNode nodeTable = document.DocumentNode.SelectSingleNode(NODE);
+			HtmlNode nodeTable = document.DocumentNode.SelectSingleNode(NODE);
             HtmlNodeCollection nodeTableRow = nodeTable.ChildNodes;
             return nodeTableRow;
         }
